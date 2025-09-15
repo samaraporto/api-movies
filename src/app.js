@@ -13,4 +13,26 @@ app.get('/api/filmes', (req,res)=>{
     res.json(filmes)
 })
 
+let nextId = 3
+
+app.post('/api/filmes', (req,res)=>{
+    const {titulo, diretor, ano} = req.body
+
+    if(!titulo || !diretor || !ano){
+        return res.status(400).json({
+            error: 'Titulo, diretor e ano são obrigatorios'
+        })
+    }
+
+    const novoFilme = {
+        id: nextId++,
+        titulo: titulo,
+        diretor: diretor,
+        ano: parseInt(ano)
+    }
+
+    filmes.push(novoFilme)
+    res.status(201).json(novoFilme)
+})
+
 module.exports = app
