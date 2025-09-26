@@ -55,3 +55,6 @@ acesse: http://localhost:8080/api/filmes
 3. **merge para main**: Agora main tem GET funcionando
 4. **feature/rota-post**: Desenvolve SOMENTE a rota POST
 5. **merge para main**: Agora main tem GET + POST funcionando
+
+
+(modificação para testar o pull_request)

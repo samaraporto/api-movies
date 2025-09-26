@@ -3,7 +3,7 @@ name: Commit Workflow
 on:
   push:
     branches:
-      - main   # só roda na branch main (pode trocar se precisar)
+      - main
 
 jobs:
   build-and-test:
@@ -13,8 +13,7 @@ jobs:
       - name: Checkout código
         uses: actions/checkout@v4
 
-      - name: Trocar para a branch 'main'
-        run: git checkout main
+      # A ETAPA PROBLEMÁTICA FOI REMOVIDA DAQUI
 
       - name: Configurar Node.js
         uses: actions/setup-node@v4
