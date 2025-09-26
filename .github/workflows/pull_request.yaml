@@ -1,0 +1,28 @@
+name: Pull Request Workflow
+
+on:
+  pull_request:
+    branches:
+      - main   # roda quando um PR é feito para main
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v4
+
+      - name: Trocar para a branch 'main'
+        run: git checkout main
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Instalar dependências
+        run: npm install
+
+      - name: Rodar testes
+        run: npm test
